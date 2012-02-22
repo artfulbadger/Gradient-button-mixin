@@ -1,4 +1,4 @@
-This simple SASS mixin creates a no fuss button with the semi transparent sphere mask over the background.
+This SASS mixin creates a no fuss button with the semi transparent sphere mask over the background. It does rely on compass for some math and color alterations.
 
 Buttons can be flat or have a gradient, all you have to do is bring typography, width, height and color/s to the party. The punch is free.
 
