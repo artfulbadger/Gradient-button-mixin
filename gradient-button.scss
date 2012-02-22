@@ -1,0 +1,57 @@
+// Sample Usage:
+// button
+//    width: 90px;
+//    height: 25px;
+//    color: #fff;
+//    font-size: 0.8em;
+//    font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+//    text-shadow: 1px 1px 1px #111;
+//    
+//   	@include Grad-Button(Ypx, Zpx, #666, #888 (optional, gives gradient))
+
+@mixin Grad-Button($width, $height, $bg-color, $grad-color : null)
+{
+	@if $grad-color != null {
+		@include background-image(linear-gradient($bg-color, $grad-color));
+	} @else {
+		@include background($bg-color);
+	}
+	
+	color: #fff;
+	text-align: center;
+	border: 1px solid (darken($bg-color, 20%));
+	border-radius: 3px;
+	display: block;
+	position: relative;
+	overflow: hidden;
+
+	//padding on the bottom for FF rendering;
+	padding: 0 0 1px 0;
+	
+	&:hover
+	{
+		@if $grad-color != null {
+			@include background-image(linear-gradient(darken($bg-color, 20%), darken($grad-color, 20%)));			
+		} @else {
+			@include background(darken($bg-color, 20%));
+		}
+
+		cursor: pointer;
+	}
+	
+	&:before
+	{
+		content: '';
+		display: block;
+		width: $width*1.15;
+		height: $height*1.2;
+		border-radius: 55%;
+		position: absolute;
+		bottom: $height*0.39;
+		//subpixel rendering differences between the browsers mean that the following negative value will need to be tweaked;
+		//diff between FF & Webkit appears to be ~2px;
+		left: -6%;
+		background: #FFF;
+		@include opacity(0.1);
+	}
+}

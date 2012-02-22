@@ -1,0 +1,5 @@
+This simple SASS mixin creates a no fuss button with the semi transparent sphere mask over the background.
+
+Buttons can be flat or have a gradient, all you have to do is bring typography, width, height and color/s to the party. The punch is free.
+
+For an example visit: http://dabblet.com/gist/1884096 or see the gist saved here: https://gist.github.com/1884096/a8a7c7fcda07c41ddc9befab61de8a8c578ebfbf
